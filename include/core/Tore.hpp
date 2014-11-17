@@ -2,19 +2,19 @@
 #define TORE_HPP
 
 #include <vector>
-#include "AbstractCell.hpp"
+#include "Cell.hpp"
 
 class Tore
 {
   private:
-    std::vector<std::vector<AbstractCell*> > cells;
+    std::vector<std::vector<Cell*> > cells;
     
   public:
     Tore(int longueur, int largeur);
     
     void iterate();
     
-    const AbstractCell& getCell(int line, int column);
+    const Cell& getCell(int line, int column);
 };
 
 #endif //TORE_HPP
