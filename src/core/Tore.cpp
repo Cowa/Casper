@@ -1,4 +1,5 @@
 #include "../../include/core/Tore.hpp"
+#include "../../include/core/StateCell.hpp"
 
 Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(width, NULL))
 {  
@@ -8,7 +9,7 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
   //For line = 0
   
     //For column = 0
-  cells[0][0] = new AbstractCell();
+  cells[0][0] = new AbstractCell(EmptyCell::emptyCell());
   cells[0][0]->setNorth(cells[maxLine][0]);
   cells[0][0]->setNorthEast(cells[maxLine][1]);
   cells[0][0]->setEast(cells[0][1]);
@@ -19,7 +20,7 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
   cells[0][0]->setNorthWest(cells[maxLine][maxColumn]);
   
     //For column = maxColumn
-  cells[0][maxColumn] = new AbstractCell();
+  cells[0][maxColumn] = new AbstractCell(EmptyCell::emptyCell());
   cells[0][maxColumn]->setNorth(cells[maxLine][maxColumn]);
   cells[0][maxColumn]->setNorthEast(cells[maxLine][0]);
   cells[0][maxColumn]->setEast(cells[0][0]);
@@ -32,7 +33,7 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
     //From column = 1 to column = maxColumn -1
   for(unsigned int column=1; column < cells[0].size() -1; column++)
   {
-    cells[0][column] = new AbstractCell();
+    cells[0][column] = new AbstractCell(EmptyCell::emptyCell());
     cells[0][column]->setNorth(cells[maxLine][column]);
     cells[0][column]->setNorthEast(cells[maxLine][column+1]);
     cells[0][column]->setEast(cells[0][column+1]);
@@ -46,7 +47,7 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
   //For line = maxLine
   
     //For column = 0
-  cells[maxLine][0] = new AbstractCell();
+  cells[maxLine][0] = new AbstractCell(EmptyCell::emptyCell());
   cells[maxLine][0]->setNorth(cells[maxLine-1][0]);
   cells[maxLine][0]->setNorthEast(cells[maxLine-1][1]);
   cells[maxLine][0]->setEast(cells[maxLine][1]);
@@ -57,7 +58,7 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
   cells[maxLine][0]->setNorthWest(cells[maxLine-1][maxColumn]);
   
     //For column = maxColumn
-  cells[maxLine][maxColumn] = new AbstractCell();
+  cells[maxLine][maxColumn] = new AbstractCell(EmptyCell::emptyCell());
   cells[maxLine][maxColumn]->setNorth(cells[maxLine-1][maxColumn]);
   cells[maxLine][maxColumn]->setNorthEast(cells[maxLine-1][0]);
   cells[maxLine][maxColumn]->setEast(cells[maxLine][0]);
@@ -70,7 +71,7 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
     //From column = 1 to column = maxColumn-1
   for(unsigned int column=1; column < cells[0].size() -1; column++)
   {
-    cells[maxLine][column] = new AbstractCell();
+    cells[maxLine][column] = new AbstractCell(EmptyCell::emptyCell());
     cells[maxLine][column]->setNorth(cells[maxLine-1][column]);
     cells[maxLine][column]->setNorthEast(cells[maxLine-1][column+1]);
     cells[maxLine][column]->setEast(cells[maxLine][column+1]);
@@ -87,7 +88,7 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
   for(unsigned int line=1; line < cells.size() -1; line++)
   {
     //For column = 0
-    cells[line][0] = new AbstractCell();
+    cells[line][0] = new AbstractCell(EmptyCell::emptyCell());
     cells[line][0]->setNorth(cells[line-1][0]);
     cells[line][0]->setNorthEast(cells[line-1][1]);
     cells[line][0]->setEast(cells[line][1]);
@@ -98,7 +99,7 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
     cells[line][0]->setNorthWest(cells[line-1][maxColumn]);
   
     //For column = maxColumn
-    cells[line][maxColumn] = new AbstractCell();
+    cells[line][maxColumn] = new AbstractCell(EmptyCell::emptyCell());
     cells[line][maxColumn]->setNorth(cells[line-1][maxColumn]);
     cells[line][maxColumn]->setNorthEast(cells[line-1][0]);
     cells[line][maxColumn]->setEast(cells[line][0]);
@@ -111,7 +112,7 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
     //From column = 1 to column = maxColumn -1
     for(unsigned int column=1; column < cells[line].size(); column++)
     {
-      cells[line][column] = new AbstractCell();
+      cells[line][column] = new AbstractCell(EmptyCell::emptyCell());
       cells[line][column]->setNorth(cells[line-1][column]);
       cells[line][column]->setNorthEast(cells[line-1][column+1]);
       cells[line][column]->setEast(cells[line][column+1]);
@@ -120,6 +121,17 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
       cells[line][column]->setSouthWest(cells[line+1][column-1]);
       cells[line][column]->setWest(cells[line][column-1]);
       cells[line][column]->setNorthWest(cells[line-1][column-1]);
+    }
+  }
+}
+
+void Tore::iterate()
+{
+  for(unsigned int line = 0; line < cells.size(); line++)
+  {
+    for(unsigned int column = 0; column < cells[line].size(); column++)
+    {
+      cells[line][column]->iterate();
     }
   }
 }

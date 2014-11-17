@@ -12,6 +12,8 @@ class Tore
   public:
     Tore(int longueur, int largeur);
     
+    void iterate();
+    
     const AbstractCell& getCell(int line, int column);
 };
 

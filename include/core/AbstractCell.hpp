@@ -1,6 +1,8 @@
 #ifndef ABSTRACT_CELL_HPP
 #define ABSTRACT_CELL_HPP
 
+#include "StateCell.hpp"
+
 class AbstractCell
 {
   private:
@@ -13,7 +15,13 @@ class AbstractCell
     AbstractCell* west;
     AbstractCell* northWest;
     
+    StateCell* state;
+    
   public:
+    AbstractCell(StateCell* s);
+    
+    void iterate();
+  
     void setNorth(AbstractCell* cell);
     void setNorthEast(AbstractCell* cell);
     void setEast(AbstractCell* cell);

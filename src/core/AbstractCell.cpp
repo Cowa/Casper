@@ -1,5 +1,13 @@
 #include "../../include/core/AbstractCell.hpp"
 
+AbstractCell::AbstractCell(StateCell* s) : state(s)
+{}
+
+void AbstractCell::iterate()
+{
+  state = state->iterate();
+}
+
 void AbstractCell::setNorth(AbstractCell* cell)
 {
   north = cell;
