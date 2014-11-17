@@ -2,12 +2,12 @@
 #define AUTOMATON_HPP
 
 #include <vector>
-#include "Cell.hpp"
+#include "Tore.hpp"
 
 class Automaton
 {
   private:
-    std::vector<std::vector<Cell> > cells;
+    Tore tore;
     
   public:
     Automaton(int longueur, int largeur);
