@@ -6,6 +6,7 @@
 class StateCell
 {
   public:
+    virtual std::string toString() const = 0;
     virtual StateCell* iterate() = 0;
 };
 
@@ -19,6 +20,7 @@ class EmptyCell : public StateCell
   public:
     static EmptyCell* emptyCell();
     
+    virtual std::string toString() const;
     virtual StateCell* iterate();
 };
 
@@ -32,6 +34,7 @@ class AliveCell : public StateCell
   public:
     static AliveCell* aliveCell();
     
+    virtual std::string toString() const;
     virtual StateCell* iterate();
 };
 

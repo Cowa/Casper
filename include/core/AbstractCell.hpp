@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_CELL_HPP
 #define ABSTRACT_CELL_HPP
 
+#include <string>
 #include "StateCell.hpp"
 
 class AbstractCell
@@ -19,6 +20,8 @@ class AbstractCell
     
   public:
     AbstractCell(StateCell* s);
+    
+    std::string getStringState() const;
     
     void iterate();
   

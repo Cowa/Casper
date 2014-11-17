@@ -3,6 +3,11 @@
 AbstractCell::AbstractCell(StateCell* s) : state(s)
 {}
 
+std::string AbstractCell::getStringState() const
+{
+  return state->toString();
+}
+
 void AbstractCell::iterate()
 {
   state = state->iterate();
