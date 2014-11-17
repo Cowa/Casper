@@ -114,3 +114,8 @@ Tore::Tore(int height, int width) : cells(height, std::vector<AbstractCell*>(wid
     }
   }
 }
+
+const AbstractCell& Tore::getCell(int line, int column)
+{
+  return *cells[line][column];
+}
