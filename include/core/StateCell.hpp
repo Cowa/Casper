@@ -10,6 +10,7 @@ class StateCell
   public:
     virtual std::string toString() const = 0;
     virtual StateCell* iterate(Cell const* cell) = 0;
+    virtual bool isState(StateCell* state);
 };
 
 class EmptyCell : public StateCell

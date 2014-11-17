@@ -1,6 +1,11 @@
 #include "../../include/core/StateCell.hpp"
 #include "../../include/core/Cell.hpp"
 
+bool StateCell::isState(StateCell* state)
+{
+  return state == this; //All state are singletons, so if state has the same class as this, it is the same instance
+}
+
 EmptyCell::EmptyCell()
 {}
 
