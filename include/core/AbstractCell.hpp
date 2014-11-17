@@ -1,5 +1,5 @@
-#ifndef CELL_HPP
-#define CELL_HPP
+#ifndef ABSTRACT_CELL_HPP
+#define ABSTRACT_CELL_HPP
 
 class AbstractCell
 {
@@ -24,4 +24,4 @@ class AbstractCell
     void setNorthWest(AbstractCell* cell);
 };
 
-#endif //CELL_HPP
+#endif //ABSTRACT_CELL_HPP
