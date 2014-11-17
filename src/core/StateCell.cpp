@@ -1,4 +1,5 @@
 #include "../../include/core/StateCell.hpp"
+#include "../../include/core/Cell.hpp"
 
 EmptyCell::EmptyCell()
 {}
@@ -15,7 +16,7 @@ std::string EmptyCell::toString() const
   return "EmptyCell";
 }
 
-StateCell* EmptyCell::iterate()
+StateCell* EmptyCell::iterate(Cell const* cell)
 {
   return AliveCell::aliveCell();
 }
@@ -36,7 +37,7 @@ std::string AliveCell::toString() const
   return "AliveCell";
 }
 
-StateCell* AliveCell::iterate()
+StateCell* AliveCell::iterate(Cell const* cell)
 {
   return EmptyCell::emptyCell();
 }

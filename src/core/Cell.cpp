@@ -10,7 +10,7 @@ std::string Cell::getStringState() const
 
 void Cell::iterate()
 {
-  state = state->iterate();
+  state = state->iterate(this);
 }
 
 void Cell::setNorth(Cell* cell)
