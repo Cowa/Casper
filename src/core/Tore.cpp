@@ -6,10 +6,23 @@ Tore::Tore(int height, int width) : cells(height, std::vector<Cell*>(width, NULL
   int maxLine = height-1;
   int maxColumn = width-1;  
   
+  
+  //Initialisation
+  
+  for(unsigned int line = 0; line < cells.size(); line++)
+  {
+    for(unsigned int column = 0; column < cells[line].size(); column++)
+    {
+      cells[line][column] = new Cell(EmptyCell::emptyCell());
+    }
+  }
+  
+  
+  //Neighbors
+  
   //For line = 0
   
     //For column = 0
-  cells[0][0] = new Cell(EmptyCell::emptyCell());
   cells[0][0]->setNorth(cells[maxLine][0]);
   cells[0][0]->setNorthEast(cells[maxLine][1]);
   cells[0][0]->setEast(cells[0][1]);
@@ -20,7 +33,6 @@ Tore::Tore(int height, int width) : cells(height, std::vector<Cell*>(width, NULL
   cells[0][0]->setNorthWest(cells[maxLine][maxColumn]);
   
     //For column = maxColumn
-  cells[0][maxColumn] = new Cell(EmptyCell::emptyCell());
   cells[0][maxColumn]->setNorth(cells[maxLine][maxColumn]);
   cells[0][maxColumn]->setNorthEast(cells[maxLine][0]);
   cells[0][maxColumn]->setEast(cells[0][0]);
@@ -33,7 +45,6 @@ Tore::Tore(int height, int width) : cells(height, std::vector<Cell*>(width, NULL
     //From column = 1 to column = maxColumn -1
   for(unsigned int column=1; column < cells[0].size() -1; column++)
   {
-    cells[0][column] = new Cell(EmptyCell::emptyCell());
     cells[0][column]->setNorth(cells[maxLine][column]);
     cells[0][column]->setNorthEast(cells[maxLine][column+1]);
     cells[0][column]->setEast(cells[0][column+1]);
@@ -47,7 +58,6 @@ Tore::Tore(int height, int width) : cells(height, std::vector<Cell*>(width, NULL
   //For line = maxLine
   
     //For column = 0
-  cells[maxLine][0] = new Cell(EmptyCell::emptyCell());
   cells[maxLine][0]->setNorth(cells[maxLine-1][0]);
   cells[maxLine][0]->setNorthEast(cells[maxLine-1][1]);
   cells[maxLine][0]->setEast(cells[maxLine][1]);
@@ -58,7 +68,6 @@ Tore::Tore(int height, int width) : cells(height, std::vector<Cell*>(width, NULL
   cells[maxLine][0]->setNorthWest(cells[maxLine-1][maxColumn]);
   
     //For column = maxColumn
-  cells[maxLine][maxColumn] = new Cell(EmptyCell::emptyCell());
   cells[maxLine][maxColumn]->setNorth(cells[maxLine-1][maxColumn]);
   cells[maxLine][maxColumn]->setNorthEast(cells[maxLine-1][0]);
   cells[maxLine][maxColumn]->setEast(cells[maxLine][0]);
@@ -71,7 +80,6 @@ Tore::Tore(int height, int width) : cells(height, std::vector<Cell*>(width, NULL
     //From column = 1 to column = maxColumn-1
   for(unsigned int column=1; column < cells[0].size() -1; column++)
   {
-    cells[maxLine][column] = new Cell(EmptyCell::emptyCell());
     cells[maxLine][column]->setNorth(cells[maxLine-1][column]);
     cells[maxLine][column]->setNorthEast(cells[maxLine-1][column+1]);
     cells[maxLine][column]->setEast(cells[maxLine][column+1]);
@@ -88,7 +96,6 @@ Tore::Tore(int height, int width) : cells(height, std::vector<Cell*>(width, NULL
   for(unsigned int line=1; line < cells.size() -1; line++)
   {
     //For column = 0
-    cells[line][0] = new Cell(EmptyCell::emptyCell());
     cells[line][0]->setNorth(cells[line-1][0]);
     cells[line][0]->setNorthEast(cells[line-1][1]);
     cells[line][0]->setEast(cells[line][1]);
@@ -99,7 +106,6 @@ Tore::Tore(int height, int width) : cells(height, std::vector<Cell*>(width, NULL
     cells[line][0]->setNorthWest(cells[line-1][maxColumn]);
   
     //For column = maxColumn
-    cells[line][maxColumn] = new Cell(EmptyCell::emptyCell());
     cells[line][maxColumn]->setNorth(cells[line-1][maxColumn]);
     cells[line][maxColumn]->setNorthEast(cells[line-1][0]);
     cells[line][maxColumn]->setEast(cells[line][0]);
@@ -110,9 +116,8 @@ Tore::Tore(int height, int width) : cells(height, std::vector<Cell*>(width, NULL
     cells[line][maxColumn]->setNorthWest(cells[line-1][maxColumn-1]);
     
     //From column = 1 to column = maxColumn -1
-    for(unsigned int column=1; column < cells[line].size(); column++)
+    for(unsigned int column=1; column < cells[line].size() -1; column++)
     {
-      cells[line][column] = new Cell(EmptyCell::emptyCell());
       cells[line][column]->setNorth(cells[line-1][column]);
       cells[line][column]->setNorthEast(cells[line-1][column+1]);
       cells[line][column]->setEast(cells[line][column+1]);
