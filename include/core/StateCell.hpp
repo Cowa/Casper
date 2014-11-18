@@ -37,6 +37,8 @@ namespace StateCell
   
   EmptyCell* emptyCell();
   AliveCell* aliveCell();
+  
+  AbstractStateCell* init();
 };
 
 #endif //STATE_CELL_HPP

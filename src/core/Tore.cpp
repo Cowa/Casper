@@ -13,7 +13,7 @@ Tore::Tore(int height, int width) : cells_(height, std::vector<Cell*>(width, NUL
   {
     for(unsigned int column = 0; column < cells_[line].size(); column++)
     {
-      cells_[line][column] = new Cell(StateCell::emptyCell());
+      cells_[line][column] = new Cell(StateCell::init());
     }
   }
   
