@@ -18,7 +18,7 @@ class EmptyCell : public StateCell
   private:
     EmptyCell();
     
-    static EmptyCell* instance;
+    static EmptyCell* instance_;
     
   public:
     static EmptyCell* emptyCell();
@@ -32,7 +32,7 @@ class AliveCell : public StateCell
   private:
     AliveCell();
     
-    static AliveCell* instance;
+    static AliveCell* instance_;
     
   public:
     static AliveCell* aliveCell();

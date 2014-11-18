@@ -1,90 +1,90 @@
 #include "../../include/core/Cell.hpp"
 
-Cell::Cell(StateCell* s) : state(s)
+Cell::Cell(StateCell* s) : state_(s)
 {}
 
 std::string Cell::getStringState() const
 {
-  return state->toString();
+  return state_->toString();
 }
 
 void Cell::iterate()
 {
-  nextState = state->iterate(this);
+  nextState_ = state_->iterate(this);
 }
 
 void Cell::apply()
 {
-  if(nextState != NULL)
+  if(nextState_ != NULL)
   {
-    state = nextState;
-    nextState = NULL;
+    state_ = nextState_;
+    nextState_ = NULL;
   }
 }
 
 bool Cell::isState(StateCell* otherState) const
 {
-  return state->isState(otherState);
+  return state_->isState(otherState);
 }
 
-const StateCell* Cell::getState() const
+const StateCell* Cell::state() const
 {
-  return state;
+  return state_;
 }
 
-const Cell& Cell::getNorth() const
+const Cell& Cell::north() const
 {
-  return *north;
+  return *north_;
 }
 
-const Cell& Cell::getNorthEast() const
+const Cell& Cell::northEast() const
 {
-  return *northEast;
+  return *northEast_;
 }
 
-const Cell& Cell::getEast() const
+const Cell& Cell::east() const
 {
-  return *east;
+  return *east_;
 }
 
-const Cell& Cell::getSouthEast() const
+const Cell& Cell::southEast() const
 {
-  return *southEast;
+  return *southEast_;
 }
 
-const Cell& Cell::getSouth() const
+const Cell& Cell::south() const
 {
-  return *south;
+  return *south_;
 }
 
-const Cell& Cell::getSouthWest() const
+const Cell& Cell::southWest() const
 {
-  return *southWest;
+  return *southWest_;
 }
 
-const Cell& Cell::getWest() const
+const Cell& Cell::west() const
 {
-  return *west;
+  return *west_;
 }
 
-const Cell& Cell::getNorthWest() const
+const Cell& Cell::northWest() const
 {
-  return *northWest;
+  return *northWest_;
 }
     
 
-std::vector<Cell const*> Cell::getNeighbors() const
+std::vector<Cell const*> Cell::neighbors() const
 {
   std::vector<Cell const*> neighbors;
   neighbors.reserve(8);
-  neighbors.push_back(north);
-  neighbors.push_back(northEast);
-  neighbors.push_back(east);
-  neighbors.push_back(southEast);
-  neighbors.push_back(south);
-  neighbors.push_back(southWest);
-  neighbors.push_back(west);
-  neighbors.push_back(northWest);
+  neighbors.push_back(north_);
+  neighbors.push_back(northEast_);
+  neighbors.push_back(east_);
+  neighbors.push_back(southEast_);
+  neighbors.push_back(south_);
+  neighbors.push_back(southWest_);
+  neighbors.push_back(west_);
+  neighbors.push_back(northWest_);
   
   return neighbors;
 }
@@ -93,40 +93,40 @@ std::vector<Cell const*> Cell::getNeighbors() const
 
 void Cell::setNorth(Cell* cell)
 {
-  north = cell;
+  north_ = cell;
 }
 
 void Cell::setNorthEast(Cell* cell)
 {
-  northEast = cell;
+  northEast_ = cell;
 }
 
 void Cell::setEast(Cell* cell)
 {
-  east = cell;
+  east_ = cell;
 }
 
 void Cell::setSouthEast(Cell* cell)
 {
-  southEast = cell;
+  southEast_ = cell;
 }
 
 void Cell::setSouth(Cell* cell)
 {
-  south = cell;
+  south_ = cell;
 }
 
 void Cell::setSouthWest(Cell* cell)
 {
-  southWest = cell;
+  southWest_ = cell;
 }
 
 void Cell::setWest(Cell* cell)
 {
-  west = cell;
+  west_ = cell;
 }
 
 void Cell::setNorthWest(Cell* cell)
 {
-  northWest = cell;
+  northWest_ = cell;
 }

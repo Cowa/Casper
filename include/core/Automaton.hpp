@@ -7,7 +7,7 @@
 class Automaton
 {
   private:
-    Tore tore;
+    Tore tore_;
     
   public:
     Automaton(int height, int width);

@@ -9,11 +9,11 @@ bool StateCell::isState(StateCell* state) const
 EmptyCell::EmptyCell()
 {}
 
-EmptyCell* EmptyCell::instance = new EmptyCell();
+EmptyCell* EmptyCell::instance_ = new EmptyCell();
 
 EmptyCell* EmptyCell::emptyCell()
 {
-  return instance;
+  return instance_;
 }
 
 std::string EmptyCell::toString() const
@@ -24,7 +24,7 @@ std::string EmptyCell::toString() const
 StateCell* EmptyCell::iterate(Cell const* cell)
 {
   int nbAliveNeighbors(0);
-  std::vector<Cell const*> neighbors = cell->getNeighbors();
+  std::vector<Cell const*> neighbors = cell->neighbors();
   
   for(int i = 0; i < neighbors.size(); i++)
   {
@@ -44,11 +44,11 @@ StateCell* EmptyCell::iterate(Cell const* cell)
 AliveCell::AliveCell()
 {}
 
-AliveCell* AliveCell::instance = new AliveCell();
+AliveCell* AliveCell::instance_ = new AliveCell();
 
 AliveCell* AliveCell::aliveCell()
 {
-  return instance;
+  return instance_;
 }
 
 std::string AliveCell::toString() const
@@ -59,7 +59,7 @@ std::string AliveCell::toString() const
 StateCell* AliveCell::iterate(Cell const* cell)
 {
   int nbAliveNeighbors(0);
-  std::vector<Cell const*> neighbors = cell->getNeighbors();
+  std::vector<Cell const*> neighbors = cell->neighbors();
   
   for(int i = 0; i < neighbors.size(); i++)
   {

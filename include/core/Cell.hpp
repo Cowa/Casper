@@ -8,17 +8,17 @@
 class Cell
 {
   private:
-    Cell* north;
-    Cell* northEast;
-    Cell* east;
-    Cell* southEast;
-    Cell* south;
-    Cell* southWest;
-    Cell* west;
-    Cell* northWest;
+    Cell* north_;
+    Cell* northEast_;
+    Cell* east_;
+    Cell* southEast_;
+    Cell* south_;
+    Cell* southWest_;
+    Cell* west_;
+    Cell* northWest_;
     
-    StateCell* state;
-    StateCell* nextState;
+    StateCell* state_;
+    StateCell* nextState_;
     
   public:
     Cell(StateCell* s);
@@ -29,18 +29,18 @@ class Cell
     void apply();
     bool isState(StateCell* otherState) const;
     
-    const StateCell* getState() const;
+    const StateCell* state() const;
     
-    const Cell& getNorth() const;
-    const Cell& getNorthEast() const;
-    const Cell& getEast() const;
-    const Cell& getSouthEast() const;
-    const Cell& getSouth() const;
-    const Cell& getSouthWest() const;
-    const Cell& getWest() const;
-    const Cell& getNorthWest() const;
+    const Cell& north() const;
+    const Cell& northEast() const;
+    const Cell& east() const;
+    const Cell& southEast() const;
+    const Cell& south() const;
+    const Cell& southWest() const;
+    const Cell& west() const;
+    const Cell& northWest() const;
     
-    std::vector<Cell const*> getNeighbors() const;
+    std::vector<Cell const*> neighbors() const;
   
     void setNorth(Cell* cell);
     void setNorthEast(Cell* cell);

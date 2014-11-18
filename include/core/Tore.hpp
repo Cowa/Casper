@@ -7,14 +7,14 @@
 class Tore
 {
   private:
-    std::vector<std::vector<Cell*> > cells;
+    std::vector<std::vector<Cell*> > cells_;
     
   public:
     Tore(int height, int width);
     
     void iterate();
     
-    const Cell& getCell(int line, int column);
+    const Cell& cell(int line, int column);
 };
 
 #endif //TORE_HPP
