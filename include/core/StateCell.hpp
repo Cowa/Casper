@@ -2,16 +2,8 @@
 #define STATE_CELL_HPP
 
 #include <string>
-
-class Cell; //Inclusion circulaire
-
-class AbstractStateCell
-{
-  public:
-    virtual std::string toString() const = 0;
-    virtual AbstractStateCell* iterate(Cell const* cell) = 0;
-    virtual bool isState(AbstractStateCell* state) const;
-};
+#include <vector>
+#include "AbstractStateCell.hpp"
 
 namespace StateCell
 {
