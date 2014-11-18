@@ -10,7 +10,7 @@ class Tore
     std::vector<std::vector<Cell*> > cells;
     
   public:
-    Tore(int longueur, int largeur);
+    Tore(int height, int width);
     
     void iterate();
     
