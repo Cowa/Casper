@@ -10,7 +10,7 @@ class Automaton
     Tore tore;
     
   public:
-    Automaton(int longueur, int largeur);
+    Automaton(int height, int width);
 };
 
 #endif //AUTOMATON_HPP
