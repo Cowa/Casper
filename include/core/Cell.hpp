@@ -1,6 +1,7 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
+#include <vector>
 #include <string>
 #include "StateCell.hpp"
 
@@ -26,7 +27,7 @@ class Cell
     void iterate();
     bool isState(StateCell* otherState) const;
     
-    const StateCell& getState() const;
+    const StateCell* getState() const;
     
     const Cell& getNorth() const;
     const Cell& getNorthEast() const;
@@ -36,6 +37,8 @@ class Cell
     const Cell& getSouthWest() const;
     const Cell& getWest() const;
     const Cell& getNorthWest() const;
+    
+    std::vector<Cell const*> getNeighbors() const;
   
     void setNorth(Cell* cell);
     void setNorthEast(Cell* cell);

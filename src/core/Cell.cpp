@@ -18,9 +18,9 @@ bool Cell::isState(StateCell* otherState) const
   return state->isState(otherState);
 }
 
-const StateCell& Cell::getState() const
+const StateCell* Cell::getState() const
 {
-  return *state;
+  return state;
 }
 
 const Cell& Cell::getNorth() const
@@ -63,6 +63,22 @@ const Cell& Cell::getNorthWest() const
   return *northWest;
 }
     
+
+std::vector<Cell const*> Cell::getNeighbors() const
+{
+  std::vector<Cell const*> neighbors;
+  neighbors.reserve(8);
+  neighbors.push_back(north);
+  neighbors.push_back(northEast);
+  neighbors.push_back(east);
+  neighbors.push_back(southEast);
+  neighbors.push_back(south);
+  neighbors.push_back(southWest);
+  neighbors.push_back(west);
+  neighbors.push_back(northWest);
+  
+  return neighbors;
+}
     
     
 
