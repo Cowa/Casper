@@ -10,7 +10,16 @@ std::string Cell::getStringState() const
 
 void Cell::iterate()
 {
-  state = state->iterate(this);
+  nextState = state->iterate(this);
+}
+
+void Cell::apply()
+{
+  if(nextState != NULL)
+  {
+    state = nextState;
+    nextState = NULL;
+  }
 }
 
 bool Cell::isState(StateCell* otherState) const

@@ -139,6 +139,14 @@ void Tore::iterate()
       cells[line][column]->iterate();
     }
   }
+  
+  for(unsigned int line = 0; line < cells.size(); line++)
+  {
+    for(unsigned int column = 0; column < cells[line].size(); column++)
+    {
+      cells[line][column]->apply();
+    }
+  }
 }
 
 const Cell& Tore::getCell(int line, int column)

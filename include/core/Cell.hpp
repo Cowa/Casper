@@ -18,6 +18,7 @@ class Cell
     Cell* northWest;
     
     StateCell* state;
+    StateCell* nextState;
     
   public:
     Cell(StateCell* s);
@@ -25,6 +26,7 @@ class Cell
     std::string getStringState() const;
     
     void iterate();
+    void apply();
     bool isState(StateCell* otherState) const;
     
     const StateCell* getState() const;
