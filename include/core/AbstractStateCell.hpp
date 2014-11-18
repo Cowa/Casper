@@ -2,6 +2,7 @@
 #define ABSTRACT_STATE_CELL_HPP
 
 #include <string>
+#include <iostream>
 
 class Cell; //Inclusion circulaire
 
