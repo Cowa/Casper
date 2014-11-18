@@ -1,6 +1,6 @@
 #include "../../include/core/Cell.hpp"
 
-Cell::Cell(StateCell* s) : state_(s)
+Cell::Cell(AbstractStateCell* s) : state_(s)
 {}
 
 std::string Cell::getStringState() const
@@ -22,12 +22,12 @@ void Cell::apply()
   }
 }
 
-bool Cell::isState(StateCell* otherState) const
+bool Cell::isState(AbstractStateCell* otherState) const
 {
   return state_->isState(otherState);
 }
 
-const StateCell* Cell::state() const
+const AbstractStateCell* Cell::state() const
 {
   return state_;
 }

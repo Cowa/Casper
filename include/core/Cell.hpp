@@ -17,19 +17,19 @@ class Cell
     Cell* west_;
     Cell* northWest_;
     
-    StateCell* state_;
-    StateCell* nextState_;
+    AbstractStateCell* state_;
+    AbstractStateCell* nextState_;
     
   public:
-    Cell(StateCell* s);
+    Cell(AbstractStateCell* s);
     
     std::string getStringState() const;
     
     void iterate();
     void apply();
-    bool isState(StateCell* otherState) const;
+    bool isState(AbstractStateCell* otherState) const;
     
-    const StateCell* state() const;
+    const AbstractStateCell* state() const;
     
     const Cell& north() const;
     const Cell& northEast() const;

@@ -5,40 +5,46 @@
 
 class Cell; //Inclusion circulaire
 
-class StateCell
+class AbstractStateCell
 {
   public:
     virtual std::string toString() const = 0;
-    virtual StateCell* iterate(Cell const* cell) = 0;
-    virtual bool isState(StateCell* state) const;
+    virtual AbstractStateCell* iterate(Cell const* cell) = 0;
+    virtual bool isState(AbstractStateCell* state) const;
 };
 
-class EmptyCell : public StateCell
+namespace StateCell
 {
-  private:
-    EmptyCell();
-    
-    static EmptyCell* instance_;
-    
-  public:
-    static EmptyCell* emptyCell();
-    
-    virtual std::string toString() const;
-    virtual StateCell* iterate(Cell const* cell);
-};
+  class EmptyCell : public AbstractStateCell
+  {
+    private:
+      EmptyCell();
+      
+      static EmptyCell* instance_;
+      
+    public:
+      friend EmptyCell* emptyCell(); //Fonction amie car non appartenant à la classe, mais au namespace StateCell(simplifie l'écriture)
+      
+      virtual std::string toString() const;
+      virtual AbstractStateCell* iterate(Cell const* cell);
+  };
 
-class AliveCell : public StateCell
-{
-  private:
-    AliveCell();
-    
-    static AliveCell* instance_;
-    
-  public:
-    static AliveCell* aliveCell();
-    
-    virtual std::string toString() const;
-    virtual StateCell* iterate(Cell const* cell);
+  class AliveCell : public AbstractStateCell
+  {
+    private:
+      AliveCell();
+      
+      static AliveCell* instance_;
+      
+    public:
+      friend AliveCell* aliveCell();  //Fonction amie car non appartenant à la classe, mais au namespace StateCell(simplifie l'écriture)
+      
+      virtual std::string toString() const;
+      virtual AbstractStateCell* iterate(Cell const* cell);
+  };
+  
+  EmptyCell* emptyCell();
+  AliveCell* aliveCell();
 };
 
 #endif //STATE_CELL_HPP
