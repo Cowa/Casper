@@ -8,6 +8,7 @@ Automaton::Automaton(int height, int width) : tore_(height, width)
   tore_.iterate();
   std::cout << "Iteration 2 : " << tore_.cell(0,0).getStringState() << std::endl;
   tore_.iterate();
-  std::cout << "Iteration 3 : " << tore_.cell(0,0).getStringState() << std::endl;
+  std::cout << "Iteration 3 : " << tore_.cell(0,0).getStringState() << std::endl << std::endl;
+  std::cout << tore_ << std::endl;
 }
 

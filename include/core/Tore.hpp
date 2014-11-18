@@ -1,6 +1,7 @@
 #ifndef TORE_HPP
 #define TORE_HPP
 
+#include <iostream>
 #include <vector>
 #include "Cell.hpp"
 
@@ -15,6 +16,10 @@ class Tore
     void iterate();
     
     const Cell& cell(int line, int column);
+    
+    friend std::ostream &operator<<( std::ostream &flux, Tore const& tore);
 };
+
+std::ostream &operator<<( std::ostream &flux, Tore const& tore);
 
 #endif //TORE_HPP

@@ -153,3 +153,32 @@ const Cell& Tore::cell(int line, int column)
 {
   return *cells_[line][column];
 }
+
+std::ostream &operator<<(std::ostream &flux, Tore const& tore)
+{
+    flux << " ";
+    for(unsigned int column = 0; column < tore.cells_[0].size(); column++)
+    {
+      flux << "-";
+    }
+    flux << " " << std::endl;
+    
+    for(unsigned int line = 0; line < tore.cells_.size(); line++)
+    {
+      flux << "|";
+      for(unsigned int column = 0; column < tore.cells_[0].size(); column++)
+      {
+        flux << 0;
+      }
+      flux << "|" << std::endl;
+    }
+    
+    flux << " ";
+    for(unsigned int column = 0; column < tore.cells_[0].size(); column++)
+    {
+      flux << "-";
+    }
+    flux << " " << std::endl;
+    
+    return flux;
+}
