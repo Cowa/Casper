@@ -4,11 +4,13 @@
 Automaton::Automaton(int height, int width) : tore_(height, width)
 {
   //Example
-  std::cout << "Iteration 1 : " << tore_.cell(0,0).getStringState() << std::endl;
+  std::cout << "Iteration 0 : " << std::endl;
+  std::cout << tore_ << std::endl;
   tore_.iterate();
-  std::cout << "Iteration 2 : " << tore_.cell(0,0).getStringState() << std::endl;
+  std::cout << "Iteration 1 : " << std::endl;
+  std::cout << tore_ << std::endl;
   tore_.iterate();
-  std::cout << "Iteration 3 : " << tore_.cell(0,0).getStringState() << std::endl << std::endl;
+  std::cout << "Iteration 2 : " << std::endl;
   std::cout << tore_ << std::endl;
 }
 
