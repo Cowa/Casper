@@ -1,6 +1,7 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
+#include <iostream>
 #include <vector>
 #include <string>
 #include "StateCell.hpp"
@@ -29,7 +30,7 @@ class Cell
     void apply();
     bool isState(AbstractStateCell* otherState) const;
     
-    const AbstractStateCell* state() const;
+    const AbstractStateCell& state() const;
     
     const Cell& north() const;
     const Cell& northEast() const;
@@ -50,6 +51,10 @@ class Cell
     void setSouthWest(Cell* cell);
     void setWest(Cell* cell);
     void setNorthWest(Cell* cell);
+    
+    friend std::ostream &operator<<( std::ostream &flux, Cell const& cell);
 };
+
+std::ostream &operator<<( std::ostream &flux, Cell const& cell);
 
 #endif //CELL_HPP

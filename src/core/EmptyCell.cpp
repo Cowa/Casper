@@ -8,7 +8,7 @@ StateCell::EmptyCell* StateCell::EmptyCell::instance_ = new EmptyCell();
 
 std::string StateCell::EmptyCell::toString() const
 {
-  return "EmptyCell";
+  return "0";
 }
 
 AbstractStateCell* StateCell::EmptyCell::iterate(Cell const* cell)

@@ -8,7 +8,7 @@ StateCell::AliveCell* StateCell::AliveCell::instance_ = new AliveCell();
 
 std::string StateCell::AliveCell::toString() const
 {
-  return "AliveCell";
+  return "1";
 }
 
 AbstractStateCell* StateCell::AliveCell::iterate(Cell const* cell)

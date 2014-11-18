@@ -1,6 +1,7 @@
 #ifndef STATE_CELL_HPP
 #define STATE_CELL_HPP
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include "AbstractStateCell.hpp"

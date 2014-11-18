@@ -15,7 +15,7 @@ class Tore
     
     void iterate();
     
-    const Cell& cell(int line, int column);
+    const Cell& cell(int line, int column) const;
     
     friend std::ostream &operator<<( std::ostream &flux, Tore const& tore);
 };

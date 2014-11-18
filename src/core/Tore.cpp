@@ -149,7 +149,7 @@ void Tore::iterate()
   }
 }
 
-const Cell& Tore::cell(int line, int column)
+const Cell& Tore::cell(int line, int column) const
 {
   return *cells_[line][column];
 }
@@ -168,7 +168,7 @@ std::ostream &operator<<(std::ostream &flux, Tore const& tore)
       flux << "|";
       for(unsigned int column = 0; column < tore.cells_[0].size(); column++)
       {
-        flux << 0;
+        flux << tore.cell(line, column);
       }
       flux << "|" << std::endl;
     }

@@ -13,4 +13,6 @@ class AbstractStateCell
     virtual bool isState(AbstractStateCell* state) const;
 };
 
+std::ostream &operator<<( std::ostream &flux, AbstractStateCell const& state);
+
 #endif //ABSTRACT_STATE_CELL_HPP

@@ -27,9 +27,9 @@ bool Cell::isState(AbstractStateCell* otherState) const
   return state_->isState(otherState);
 }
 
-const AbstractStateCell* Cell::state() const
+const AbstractStateCell& Cell::state() const
 {
-  return state_;
+  return *state_;
 }
 
 const Cell& Cell::north() const
@@ -129,4 +129,11 @@ void Cell::setWest(Cell* cell)
 void Cell::setNorthWest(Cell* cell)
 {
   northWest_ = cell;
+}
+
+std::ostream &operator<<( std::ostream &flux, Cell const& cell)
+{
+  flux << cell.state();
+  
+  return flux;
 }
