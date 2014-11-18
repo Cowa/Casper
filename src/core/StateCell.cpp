@@ -23,7 +23,21 @@ std::string EmptyCell::toString() const
 
 StateCell* EmptyCell::iterate(Cell const* cell)
 {
-  return AliveCell::aliveCell();
+  int nbAliveNeighbors(0);
+  std::vector<Cell const*> neighbors = cell->getNeighbors();
+  
+  for(int i = 0; i < neighbors.size(); i++)
+  {
+    if(neighbors[i]->isState(AliveCell::aliveCell()))
+    {
+      nbAliveNeighbors++;
+    }
+  }
+  
+  if(nbAliveNeighbors > 2)
+    return AliveCell::aliveCell();
+  else
+    return EmptyCell::emptyCell();  
 }
 
 
@@ -44,5 +58,21 @@ std::string AliveCell::toString() const
 
 StateCell* AliveCell::iterate(Cell const* cell)
 {
-  return EmptyCell::emptyCell();
+  int nbAliveNeighbors(0);
+  std::vector<Cell const*> neighbors = cell->getNeighbors();
+  
+  for(int i = 0; i < neighbors.size(); i++)
+  {
+    if(neighbors[i]->isState(AliveCell::aliveCell()))
+    {
+      nbAliveNeighbors ++;
+    }
+  }
+  
+  if(nbAliveNeighbors < 2) //Solitude
+    return EmptyCell::emptyCell();
+  else if(nbAliveNeighbors > 3) //Surpopulation
+    return EmptyCell::emptyCell();
+  else
+    return AliveCell::aliveCell();
 }
