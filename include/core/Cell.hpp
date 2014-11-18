@@ -24,7 +24,7 @@ class Cell
     std::string getStringState() const;
     
     void iterate();
-    bool isState(StateCell* state) const;
+    bool isState(StateCell* otherState) const;
     
     const StateCell& getState() const;
     

@@ -13,9 +13,9 @@ void Cell::iterate()
   state = state->iterate(this);
 }
 
-bool Cell::isState(StateCell* state) const
+bool Cell::isState(StateCell* otherState) const
 {
-  return state->isState(state);
+  return state->isState(otherState);
 }
 
 const StateCell& Cell::getState() const
