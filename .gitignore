@@ -26,3 +26,12 @@
 *.exe
 *.out
 *.app
+
+＃Interface
+*moc_*
+*.DS_Store
+
+# QtFile
+.DS_Store
+Makefile
+moc_*
