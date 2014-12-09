@@ -15,7 +15,7 @@ namespace StateCell
       static EmptyCell* instance_;
       
     public:
-      friend EmptyCell* emptyCell(); //Fonction amie car non appartenant à la classe, mais au namespace StateCell(simplifie l'écriture)
+      static EmptyCell* emptyCell();
       
       virtual std::string toString() const;
       virtual AbstractStateCell* iterate(Cell const* cell);
@@ -29,14 +29,11 @@ namespace StateCell
       static AliveCell* instance_;
       
     public:
-      friend AliveCell* aliveCell();  //Fonction amie car non appartenant à la classe, mais au namespace StateCell(simplifie l'écriture)
+      static AliveCell* aliveCell();
       
       virtual std::string toString() const;
       virtual AbstractStateCell* iterate(Cell const* cell);
   };
-  
-  EmptyCell* emptyCell();
-  AliveCell* aliveCell();
   
   AbstractStateCell* init();
 };

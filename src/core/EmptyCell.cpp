@@ -4,6 +4,11 @@
 StateCell::EmptyCell::EmptyCell()
 {}
 
+StateCell::EmptyCell* StateCell::EmptyCell::emptyCell()
+{
+  return instance_;
+}
+
 StateCell::EmptyCell* StateCell::EmptyCell::instance_ = new EmptyCell();
 
 std::string StateCell::EmptyCell::toString() const
@@ -18,14 +23,14 @@ AbstractStateCell* StateCell::EmptyCell::iterate(Cell const* cell)
   
   for(int i = 0; i < neighbors.size(); i++)
   {
-    if(neighbors[i]->isState(aliveCell()))
+    if(neighbors[i]->isState(StateCell::AliveCell::aliveCell()))
     {
       nbAliveNeighbors++;
     }
   }
   
   if(nbAliveNeighbors > 2)
-    return aliveCell();
+    return StateCell::AliveCell::aliveCell();
   else
     return emptyCell();  
 }

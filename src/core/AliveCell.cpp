@@ -4,6 +4,11 @@
 StateCell::AliveCell::AliveCell()
 {}
 
+StateCell::AliveCell* StateCell::AliveCell::aliveCell()
+{
+  return instance_;
+}
+
 StateCell::AliveCell* StateCell::AliveCell::instance_ = new AliveCell();
 
 std::string StateCell::AliveCell::toString() const
@@ -25,9 +30,9 @@ AbstractStateCell* StateCell::AliveCell::iterate(Cell const* cell)
   }
   
   if(nbAliveNeighbors < 2) //Solitude
-    return emptyCell();
+    return StateCell::EmptyCell::emptyCell();
   else if(nbAliveNeighbors > 3) //Surpopulation
-    return emptyCell();
+    return StateCell::EmptyCell::emptyCell();
   else
     return aliveCell();
 }
