@@ -26,3 +26,29 @@
 *.exe
 *.out
 *.app
+
+# Project executable
+Casper
+
+# Gedit family trash
+*~
+
+＃ Mac OSX trash
+.DS_Store
+
+# Qt trash
+moc_*
+
+# Autotools trash
+Makefile
+Makefile.in
+config.log
+config.status
+autom4te.cache/
+.deps/
+aclocal.m4
+config.guess
+config.sub
+depcomp
+install-sh
+missing
